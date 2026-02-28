@@ -5,6 +5,42 @@
 #include <iostream>
 using std::cout;
 
+Heap::Heap(vector<int>::iterator begin,vector<int>::iterator end){
+  vdata=vector<int>(begin,end);
+
+  for(int i=(vdata.size()/2)-1;i>=0;i--){
+    int index=i;
+    bool done=false;
+
+    while(true){
+      int left=2*index+1;
+      int right=2*index+2;
+      int smallest=index;
+
+      if(left<vdata.size() && vdata[left]<vdata[smallest]){
+        smallest=left;
+      }
+
+      if(right<vdata.size() && vdata[right]<vdata[smallest]){
+        smallest=right;
+      }
+
+      if(smallest!=index){
+        int temp=vdata[index];
+        vdata[index]=vdata[smallest];
+        vdata[smallest]=temp;
+        index=smallest;
+      }
+      else{
+        done=true;
+      }
+  
+
+    }
+    
+  }
+}
+
 // Pushes a value into the heap, then ensures
 // the heap is correctly arranged
 void Heap::push(int value){
