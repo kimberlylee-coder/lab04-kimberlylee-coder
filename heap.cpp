@@ -71,6 +71,9 @@ return;
 // (but does not return it), then ensures
 // the heap is correctly arranged
 void Heap::pop(){
+  if(vdata.empty()){
+    return;
+   }
   vdata[0]=vdata[vdata.size()-1];
   vdata.pop_back();
 
@@ -103,6 +106,9 @@ void Heap::pop(){
 
 // Returns the minimum element in the heap
 int Heap::top(){
+  if(vdata.empty()){
+    return -1;
+  }
   return vdata[0];
 }
 
