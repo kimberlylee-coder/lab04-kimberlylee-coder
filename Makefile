@@ -1,16 +1,13 @@
-CXX=g++
-CXXFLAGS=-std=c++20 -Ofast
+FLAGS = -Wall -Werror
+CPP=g++
 
 all: examheap
 
-examheap: examheap.o heap.o
-	$(CXX) $(CXXFLAGS) -o examheap examheap.o heap.o
+heap.o: heap.cpp
+		$(CPP) $(FLAGS) -c heap.cpp
 
-examheap.o: examheap.cpp heap.h
-	$(CXX) $(CXXFLAGS) -c examheap.cpp
+examheap.o: examheap.cpp
+		$(CPP) $(FLAGS) -c $^
 
-heap.o: heap.cpp heap.h
-	$(CXX) $(CXXFLAGS) -c heap.cpp
-
-clean:
-	rm -f *.o examheap
+examheap: heap.o examheap.o
+		$(CPP) $(FLAGS) $^ -o $@

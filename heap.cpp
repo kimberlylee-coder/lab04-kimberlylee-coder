@@ -1,9 +1,12 @@
 // heap.cpp
 // Diba Mirza
+//kimberly lee
 
 #include "heap.h"
 #include <iostream>
 using std::cout;
+#include <vector>
+using namespace std;
 
 Heap::Heap(vector<int>::iterator begin,vector<int>::iterator end){
   vdata=vector<int>(begin,end);
@@ -12,16 +15,16 @@ Heap::Heap(vector<int>::iterator begin,vector<int>::iterator end){
     int index=i;
     bool done=false;
 
-    while(true){
+    while(!done){
       int left=2*index+1;
       int right=2*index+2;
       int smallest=index;
 
-      if(left<vdata.size() && vdata[left]<vdata[smallest]){
+      if(left<(int)vdata.size() && vdata[left]<vdata[smallest]){
         smallest=left;
       }
 
-      if(right<vdata.size() && vdata[right]<vdata[smallest]){
+      if(right<(int)vdata.size() && vdata[right]<vdata[smallest]){
         smallest=right;
       }
 
@@ -77,11 +80,11 @@ void Heap::pop(){
     int right=2*index+2;
     int smallest=index;
 
-    if(left<vdata.size() && vdata[left]<vdata[smallest]){
+    if(left<(int)vdata.size() && vdata[left]<vdata[smallest]){
       smallest=left;
     }
 
-    if(right<vdata.size() && vdata[right]<vdata[smallest]){
+    if(right<(int)vdata.size() && vdata[right]<vdata[smallest]){
       smallest=right;
     }
 
