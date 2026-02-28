@@ -1,13 +1,13 @@
 FLAGS = -Wall -Werror
-CPP=g++
+CPP = g++
 
 all: examheap
 
 heap.o: heap.cpp
-		$(CPP) $(FLAGS) -c heap.cpp
+	$(CPP) $(FLAGS) -c heap.cpp
 
 examheap.o: examheap.cpp
-		$(CPP) $(FLAGS) -c $^
+	$(CPP) $(FLAGS) -c $^
 
 examheap: heap.o examheap.o
-		$(CPP) $(FLAGS) $^ -o $@
+	$(CPP) $(FLAGS) $^ -o $@
